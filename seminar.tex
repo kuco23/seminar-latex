@@ -1,0 +1,48 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=3cm]{geometry}
+
+\begin{document}
+\begin{equation}
+g(x) := e_a(x, t) e_b(x, t) = e^{ax - \frac{a^2 t}{2}}  e^{ax - \frac{b^2 t}{2}} = e^{x(a + b) - \frac{t}{2} (a^2 + b^2)} \\[4px]
+\end{equation}
+\begin{equation*}
+\begin{split}
+E(g(X)) &= \int_{-\infty}^{\infty}g(x)f_X(x)dx = \\
+&= \int_{-\infty}^{\infty} e^{-\frac{t}{2}(a^2 + b^2)} e^{x (a + b)} \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}} dx \\
+&= e^{-\frac{t}{2}(a^2 + b^2)} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2} + x (a + b)} dx \\
+&= e^{-\frac{t}{2} (a^2 + b^2)} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2} (x^2 - 2x (a + b))} dx \\
+&= e^{-\frac{t}{2} (a^2 + b^2)} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2} ((x - (a + b))^2 - (a + b)^2)} dx \\
+&= e^{-\frac{t}{2} (a^2 + b^2)} e^{\frac{1}{2} (a + b)^2} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2} (x - (a + b))^2} dx \\
+&= e^{\frac{1}{2} ((a + b)^2 - t (a^2 + b^2))} \int_{-\infty}^{\infty} f_Z(x) dx \quad (Z \sim N(a + b, 1)) \\
+& = e^{\frac{1}{2} ((a + b)^2 - t (a^2 + b^2))}
+\end{split}
+\end{equation*}
+\begin{equation}
+\begin{split}
+&e^{ax - \frac{a^2t}{2}} = e^{a (x - \frac{at}{2})} = \sum_{n=0}^{\infty} \frac{a^n}{n!} (x - \frac{at}{2})^n = \sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(x, t) \\
+&h_n(x, t) = (x - \frac{at}{2})^n \\
+&g(x) := h_n(x, t) h_n(x, t) = (x - \frac{at}{2})^{n + m} = \sum_{i=0}^{k} \binom{n + m}{i} x^i (-\frac{at}{2})^{n + m - i} \\[10px]
+E(g(X)) &= \int_{-\infty}^{\infty} g(x) f_X(x) dx \quad (k = m + n) \\
+&=\int_{-\infty}^{\infty} \sum_{i=0}^{k} \binom{k}{i} x^i (-\frac{at}{2})^{k - i} \frac{1}{\sqrt{2 \pi}} e^{-\frac{x^2}{2}} dx \\
+&= \sum_{i=0}^{k} \binom{k}{i} (-\frac{at}{2})^{k - i} \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} x^i e^{-\frac{x^2}{2}} dx\\
+&= \sum_{i=0}^{k} \binom{k}{i} (-\frac{at}{2})^{k - i} \frac{2}{\sqrt{2 \pi}} \int_{0}^{\infty} 2^{\frac{i}{2}} u^{\frac{i}{2}} e^{-u} \frac{du}{\sqrt{2u}} \\
+\intertext{tu smo uvedli} u = \frac{x^2}{2} \intertext{in upostevali, da je integral konvergenten in lih za lihe clene i, in zato enak 0, torej od sedaj naprej gledamo le sode i} \\
+&= \sum_{i=0}^{k} \binom{k}{i} (-at)^{k - i} 2^{i - k + \frac{1}{2}} \frac{1}{\sqrt{\pi}} 2^{\frac{i - 1}{2}} \int_{0}^{\infty} u^{\frac{i - 1}{2}} e^{-u} du \\
+&= \sum_{i=0}^{k} \binom{k}{i} (-at)^{k - i} 2^{\frac{3i}{2} - k} \frac{1}{\sqrt{\pi}} \Gamma (\frac{i+1}{2}) \\
+&= \sum_{i=0}^{k} \binom{k}{i} (-at)^{k - i} 2^{i - k + \frac{1}{2}} (i - 1)!! \\[10px]
+& \Gamma (\frac{i + 1}{2}) = \frac{i - 1}{2} \Gamma (\frac{i - 1}{2}) = \frac{(i - 1)(i - 3)}{2^2} \Gamma (\frac{i - 3}{2}) = \dots  \\
+&= \frac{(i - 1)!!}{2^{\frac{i - 1}{2}}} \Gamma (\frac{1}{2}) = 2^{\frac{i - 1}{2}} (i - 1)!! \sqrt{\pi}
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+&G(x, y) = (x,  e^{a(x + cy)}) = (u, v) \\
+&G^{-1}(u, v) = (u, \frac{ln(v) - ua}{ac}) = (x, y) \\[10px]
+&f_{(e^{a(X + cY)} / X)}  (y / x) = \frac{(f_{X, e^{a(X + cY)})} (x, y)}{f_X (x)} \\
+&f_{(X, e^{a(X + cY)})} (u,v) = \frac{f_{(X, Y)} (u,  \frac{ln(v) - ua}{ac})}{|det(J_{(x, y)} (u, \frac{ln(v) - ua}{ac}))|} \\
+\end{split}
+\end{equation}
+\end{document}
