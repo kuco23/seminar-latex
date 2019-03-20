@@ -1,0 +1,63 @@
+\documentclass[letterpaper, titlepage, fleqn]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[slovene]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+
+\title{Hermitovi polinomi in normalna porazdelitev}
+\author{Nejc Ševerkar \& Tjaša Redek}
+\date{\today}
+\maketitle
+
+\begin{abstract}
+V tej nalogi bova s Tjašusom predstavila
+povezavo med Hermitovimi polinomi in normalno porazdellitvijo.
+Na koncu bova sprejela tudi kakšno vprašanje.
+Če bo najino ne poznanje odgovora na to vprašanje
+rezultiralo v nižjo oceno bova izvedela kje oseba, ki
+je to vprašanje zastavila živi.
+\end{abstract}
+
+\section*{Naloga}
+Hermitovi polinomi $(h_n)_{n \in \mathbb{N}}$ dveh realniih spremenljivk
+so definirani preko relacije \\[10px]
+$e_n(x, t) := e^{ax -\frac{a^2t}{2}} = \sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(x, t), 
+\quad {x, t} \subset \mathbb{R}, a \in \mathbb{C}$ \\[10px]
+Naj bosta $X \sim N(0, 1)$ in $Y \sim N(0, 1)$ neodvisni standardni normalni spremenljivki. \\[10px]
+(i) Izračunaj $E[e_a(X,1) e_b(X,1)] (\{a,b\} \in \mathbb{C} $ in izpelji izraz za $ E[h_n(X,1) h_m(X,1)] (\{m,n\}\in \mathbb{N} $).\\[15px]
+
+{\setlength{\mathindent}{0cm}
+\begin{equation}
+\begin{aligned}
+E\left(g\left(X\right)\right) & = \int_{-\infty}^{\infty}g\left(x\right)f_X\left(x\right)dx = \\[8px]
+&= \int_{-\infty}^{\infty} e^{-\frac{t}{2}(a^2 + b^2)} e^{x \left(a + b\right)} \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}} dx \\[8px]
+&= e^{-\frac{t}{2}\left(a^2 + b^2\right)} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2} + x \left(a + b\right)} dx \\[8px]
+& = e^{-\frac{t}{2} \left(a^2 + b^2\right)} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2} \left(x^2 - 2x \left(a + b\right)\right)} dx \\[8px]
+&= e^{-\frac{t}{2} \left(a^2 + b^2\right)} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2} \left(\left(x - \left(a + b\right)\right)^2 -\left (a + b\right)^2\right)} dx \\[8px]
+& = e^{-\frac{t}{2} \left(a^2 + b^2\right)} e^{\frac{1}{2} \left(a + b\right)^2} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2} \left(x - \left(a + b\right)\right)^2} dx \\[8px]
+& = e^{\frac{1}{2} \left(\left(a + b\right)^2 - t \left(a^2 + b^2\right)\right)} \int_{-\infty}^{\infty} f_Z(x) dx \quad (Z \sim N(a + b, 1)) \\[8px]
+& = e^{\frac{1}{2} \left(\left(a + b\right)^2 - t \left(a^2 + b^2\right)\right)}
+\end{aligned}
+\end{equation}
+
+$$
+E(e_a(X, 1) e_b(X, 1)) = e^{ab} = \sum_{i=0}^{\infty} \frac{(ab)^i}{i!} \\[8px]
+E(e_a(X, 1) e_b(X, 1)) = E(\sum_{n=0}^{\infty} \sum_{m=0}^{\infty} \frac{a^n b^m}{n! m!} h_n(x, 1) h_m(x, 1) \\[8px]
+$$
+Vidimo, da enakost sledi tedaj, ko sta za $ \forall n \neq m : h_n(x, 1) h_m(x, 1) = 0 $ in za $ \forall n = m : h_n(x, 1) h_m(x, 1) = n! $ \\[10px]
+\[
+$$
+E(h_n(x, 1) h_m(x, 1)) = \int_{-\infty}^{\infty} h_n(x, 1) h_m(x, 1) f_X(x) dx  =
+\left\{
+\begin{array}{lr}
+ n! & \text{for } m = n \\
+ 0 & \text{for } m \neq n 
+ \end{array} 
+ \right.
+$$
+\]
+
+\end{document}
