@@ -1,4 +1,4 @@
-\documentclass[letterpaper, titlepage, freqn]{article}
+\documentclass[letterpaper, titlepage, fleqn]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[slovene]{babel}
@@ -18,10 +18,10 @@ E\left( e^{a\left(X+cY\right)}|X\right)=e^{aX}E\left(e^{acY}\right)
 Posebej izračunajmo $E\left(e^{acY}\right)$:
 \begin{equation*}
 \begin{aligned}
-E\left(e^{acY}\right)=\int_{-\infty}^{\infty}e^{acy}\frac{1}{\sqrt{2\pi}} e^{-\frac{y^2}{2}} dy=\\
-=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{\frac{-\left(y^2-2acy\right)}{2}}dy=\\
-=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{\frac{-\left(\left(y-ac\right)^2-\left(ac\right)^2\right)}{2}}dy=\\
-=e^\frac{(ac)^2}{2}
+E\left(e^{acY}\right)=&\int_{-\infty}^{\infty}e^{acy}\frac{1}{\sqrt{2\pi}} e^{-\frac{y^2}{2}} dy=\\[8px]
+&=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{\frac{-\left(y^2-2acy\right)}{2}}dy=\\[8px]
+&=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{\frac{-\left(\left(y-ac\right)^2-\left(ac\right)^2\right)}{2}}dy=\\[8px]
+&=e^\frac{(ac)^2}{2}
 \end{aligned}
 \end{equation*}
 Torej dobimo:
