@@ -2,9 +2,9 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[slovene]{babel}
+\usepackage[margin=60px]{geometry}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage[margin=50px]{geometry}
 
 \begin{document}
 \title{Seminar \\ Hermitovi polinomi in normalna porazdelitev}
@@ -13,8 +13,10 @@
 \maketitle
 
 \begin{abstract}
+\begin{center}
 V tej nalogi bova predstavila povezavo med hermitovimi polinomi
 in standardno normalno porazdelitvijo.
+\end{center}
 \end{abstract}
 
 \section*{Naloga}
@@ -28,7 +30,7 @@ Naj bosta $X \sim N(0, 1)$ in $Y \sim N(0, 1)$ neodvisni standardni normalni spr
 {\setlength{\mathindent}{0cm}
 \begin{equation*}
 \begin{aligned}
-E\left(g\left(X\right)\right) & = \int_{-\infty}^{\infty}g\left(x\right)f_X\left(x\right)dx = \\[8px]
+E\left(e_a\left(X, t\right)e_b\left(X, t\right)\right) &= E\left(g\left(X\right)\right) = \int_{-\infty}^{\infty}g\left(x\right)f_X\left(x\right)dx = \\[8px]
 &= \int_{-\infty}^{\infty} e^{-\frac{t}{2}(a^2 + b^2)} e^{x \left(a + b\right)} \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}} dx \\[8px]
 &= e^{-\frac{t}{2}\left(a^2 + b^2\right)} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2} + x \left(a + b\right)} dx \\[8px]
 & = e^{-\frac{t}{2} \left(a^2 + b^2\right)} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2} \left(x^2 - 2x \left(a + b\right)\right)} dx \\[8px]
