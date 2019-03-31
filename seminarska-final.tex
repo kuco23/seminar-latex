@@ -25,7 +25,10 @@ so definirani preko relacije \\[10px]
 $e_a(x, t) := e^{ax -\frac{a^2t}{2}} = \sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(x, t), 
 \quad {x, t} \subset \mathbb{R}, a \in \mathbb{C}$ \\[10px]
 Naj bosta $X \sim N(0, 1)$ in $Y \sim N(0, 1)$ neodvisni standardni normalni spremenljivki. \\[10px]
-(i) Izračunaj $E[e_a(X,1) e_b(X,1)] (\{a,b\} \in \mathbb{C}) $ in izpelji izraz za $ E[h_n(X,1) h_m(X,1)] \text{ } (\{m,n\}\in ~ \mathbb{N} $).\\
+(i) Izračunaj $E[e_a(X,1) e_b(X,1)] (\{a,b\} \in \mathbb{C}) $ in izpelji izraz za $ E[h_n(X,1) h_m(X,1)] \text{ } (\{m,n\}\in ~ \mathbb{N} $).\\[10px]
+
+\noindent Pri prvem delu moramo izračunati $E\left(g\left(X\right)\right)$, kjer smo označili $g\left(x\right) = e_a\left(x, t\right) e_b\left(x, t\right)$ .
+Za izračun upoštevamo izrek o matematičnem upanju transformacije slučajne spremenljivke, ki je razviden v računu:
 
 {\setlength{\mathindent}{0cm}
 \begin{equation*}
@@ -37,13 +40,17 @@ E\left(e_a\left(X, t\right)e_b\left(X, t\right)\right) &= E\left(g\left(X\right)
 &= e^{-\frac{t}{2} \left(a^2 + b^2\right)} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2} \left(\left(x - \left(a + b\right)\right)^2 -\left (a + b\right)^2\right)} dx \\[8px]
 & = e^{-\frac{t}{2} \left(a^2 + b^2\right)} e^{\frac{1}{2} \left(a + b\right)^2} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2} \left(x - \left(a + b\right)\right)^2} dx \\[8px]
 & = e^{\frac{1}{2} \left(\left(a + b\right)^2 - t \left(a^2 + b^2\right)\right)} \int_{-\infty}^{\infty} f_Z(x) dx \quad (Z \sim N(a + b, 1)) \\[8px]
-& = e^{\frac{1}{2} \left(\left(a + b\right)^2 - t \left(a^2 + b^2\right)\right)}
+& = e^{\frac{1}{2} \left(\left(a + b\right)^2 - t \left(a^2 + b^2\right)\right)} \\[8px]
 \end{aligned}
 \end{equation*}
 
+\noindent Ko vstavimo $t=1$ dobimo naslednji zvezi:
+
 \begin{equation*}
-E\left(e_a\left(X, 1\right) e_b\left(X, 1\right)\right) = e^{ab} = \sum_{i=0}^{\infty} \frac{(ab)^i}{i!} \\[8px]
-E\left(e_a\left(X, 1\right) e_b\left(X, 1\right)\right) = E\left(\sum_{n=0}^{\infty} \sum_{m=0}^{\infty} \frac{a^n b^m}{n! m!} h_n(x, 1) h_m(x, 1)\right) \\[8px]
+\begin{aligned}
+E\left(e_a\left(X, 1\right) e_b\left(X, 1\right)\right) &= e^{ab} = \sum_{i=0}^{\infty} \frac{(ab)^i}{i!} \\[8px]
+E\left(e_a\left(X, 1\right) e_b\left(X, 1\right)\right) &= E\left(\sum_{n=0}^{\infty} \sum_{m=0}^{\infty} \frac{a^n b^m}{n! m!} h_n(x, 1) h_m(x, 1)\right) \\[8px]
+\end{aligned}
 \end{equation*}
 Vidimo, da enakost sledi tedaj, ko sta za $ \forall n \neq m : h_n(x, 1) h_m(x, 1) = 0 $ in za $ \forall n = m : h_n(x, 1) h_m(x, 1) = n! $ \\[10px]
 \[
@@ -60,9 +67,8 @@ $$
 \pagebreak
 
 
-\noindent (ii) Naj bo $a \in \mathbb{C}$ in $c \in \mathbb{R}$. \\
-\indent Izrazi $E\left( e^{a\left(X+cY\right)}|X\right)$ z $e_a$, $X$ in $c$ ter $E\left(\left(X+cY\right)^{k}|X\right)$ za $k \in \mathbb{N}_0$ z $h_k$, $X$, in $c$.
-\\[8px]
+\noindent (ii) Naj bo $a \in \mathbb{C}$ in $c \in \mathbb{R}$. Izrazi $E\left( e^{a\left(X+cY\right)}|X\right)$ z $e_a$, $X$ in $c$ ter $E\left(\left(X+cY\right)^{k}|X\right)$ za $k \in \mathbb{N}_0$ z $h_k$, $X$, in $c$.
+\\[10px]
  
 \noindent Najprej izpostavimo $e^{aX}$ in uporabimo neodvisnost:
 \begin{equation*}
