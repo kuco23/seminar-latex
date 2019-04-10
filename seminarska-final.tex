@@ -40,7 +40,7 @@ E\left(e_a\left(X, t\right)e_b\left(X, t\right)\right) &= E\left(g\left(X\right)
 &= e^{-\frac{t}{2} \left(a^2 + b^2\right)} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2} \left(\left(x - \left(a + b\right)\right)^2 -\left (a + b\right)^2\right)} dx \\[8px]
 & = e^{-\frac{t}{2} \left(a^2 + b^2\right)} e^{\frac{1}{2} \left(a + b\right)^2} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2} \left(x - \left(a + b\right)\right)^2} dx \\[8px]
 & = e^{\frac{1}{2} \left(\left(a + b\right)^2 - t \left(a^2 + b^2\right)\right)} \int_{-\infty}^{\infty} f_Z(x) dx \quad (Z \sim N(a + b, 1)) \\[8px]
-& = e^{\frac{1}{2} \left(\left(a + b\right)^2 - t \left(a^2 + b^2\right)\right)} \\[8px]
+& = e^{\frac{1}{2} \left(\left(a + b\right)^2 - t \left(a^2 + b^2\right)\right)}. \\[8px]
 \end{aligned}
 \end{equation*}
 
@@ -48,22 +48,22 @@ E\left(e_a\left(X, t\right)e_b\left(X, t\right)\right) &= E\left(g\left(X\right)
 
 \begin{equation*}
 \begin{aligned}
-E\left(e_a\left(X, 1\right) e_b\left(X, 1\right)\right) &= e^{ab} = \sum_{i=0}^{\infty} \frac{(ab)^i}{i!} \\[8px]
+E\left(e_a\left(X, 1\right) e_b\left(X, 1\right)\right) &= e^{ab} = \sum_{i=0}^{\infty} \frac{(ab)^i}{i!}, \\[8px]
 E\left(e_a\left(X, 1\right) e_b\left(X, 1\right)\right) &= E\left(\sum_{n=0}^{\infty} \sum_{m=0}^{\infty} \frac{a^n b^m}{n! m!} h_n(x, 1) h_m(x, 1)\right)  =
-\sum_{n=0}^{\infty} \sum_{m=0}^{\infty} \frac{a^n b^m}{n! m!} E\left( h_n(x, 1) h_m(x, 1)\right) 
+\sum_{n=0}^{\infty} \sum_{m=0}^{\infty} \frac{a^n b^m}{n! m!} E\left( h_n(x, 1) h_m(x, 1)\right).
 \\[8px]
 \end{aligned}
 \end{equation*}
 
 \noindent $
-\text{Vidimo, da enakost med enačbama velja, ko }
+\text{Vidimo, da enakost med vrstama velja, ko }
 E\left(h_n\left(X, 1\right) h_m\left(X, 1\right)\right)  =
 \left\{
 \begin{array}{lr}
 n! & \text{za } m = n \\
 0 & \text{za } m \neq n 
 \end{array} 
-\right.
+.\right.
 $
 
 \pagebreak
@@ -72,10 +72,10 @@ $
 \noindent (ii) Naj bo $a \in \mathbb{C}$ in $c \in \mathbb{R}$. Izrazi $E\left( e^{a\left(X+cY\right)}|X\right)$ z $e_a$, $X$ in $c$ ter $E\left(\left(X+cY\right)^{k}|X\right)$ za $k \in \mathbb{N}_0$ z $h_k$, $X$, in $c$.
 \\[10px]
  
-\noindent Najprej izpostavimo $e^{aX}$ in uporabimo neodvisnost:
+\noindent Najprej upoštevamo lastnosti pogojnega matematičnega upanja in uporabimo neodvisnost. Tako dobimo:
 \begin{equation*}
 \begin{aligned}
-E\left( e^{a\left(X+cY\right)}|X\right)=e^{aX}E\left(e^{acY}\right)
+E\left( e^{a\left(X+cY\right)}|X\right)=E\left( e^{aX}e^{acY}|X\right)=e^{aX}E\left(e^{acY}\right).
 \end{aligned}
 \end{equation*}
 Posebej izračunajmo $E\left(e^{acY}\right)$:
@@ -84,19 +84,19 @@ Posebej izračunajmo $E\left(e^{acY}\right)$:
 E\left(e^{acY}\right)&=\int_{-\infty}^{\infty}e^{acy}\frac{1}{\sqrt{2\pi}} e^{-\frac{y^2}{2}} dy=\\[8px]
 &=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{\frac{-\left(y^2-2acy\right)}{2}}dy=\\[8px]
 &=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{\frac{-\left(\left(y-ac\right)^2-\left(ac\right)^2\right)}{2}}dy=\\[8px]
-&=e^\frac{(ac)^2}{2}
+&=e^\frac{(ac)^2}{2}.
 \end{aligned}
 \end{equation*}
 Torej dobimo:
 \begin{equation*}
 \begin{aligned}
-E\left( e^{a\left(X+cY\right)}|X\right)=e^{aX}e^\frac{\left(ac\right)^2}{2}=e^{aX+\frac{a^2c^2}{2}}=e_a\left(X,-c^2\right)
+E\left( e^{a\left(X+cY\right)}|X\right)=e^{aX}e^\frac{\left(ac\right)^2}{2}=e^{aX+\frac{a^2c^2}{2}}=e_a\left(X,-c^2\right).
 \end{aligned}
 \end{equation*}
 Za izračun $E\left(\left(X+cY\right)^{k}|X\right)$ uporabimo prejšnji račun in razvijemo $e^{a\left(X+cY\right)}$ v Taylorjevo vrsto:
 \begin{equation*}
 \begin{aligned}
-E\left( e^{a\left(X+cY\right)}|X\right)=E\left(\sum_{n=0}^{\infty}\frac{a^n\left(X+cY\right)^n}{n!}|X\right)=\sum_{n=0}^{\infty}\frac{a^n}{n!}E((X+cY)^n|X) 
+E\left( e^{a\left(X+cY\right)}|X\right)=E\left(\sum_{n=0}^{\infty}\frac{a^n\left(X+cY\right)^n}{n!}|X\right)=\sum_{n=0}^{\infty}\frac{a^n}{n!}E((X+cY)^n|X). 
 \end{aligned}
 \end{equation*}
 Po definiciji hermitovih polinomov pa velja še $E\left( e^{a\left(X+cY\right)}|X\right)=
