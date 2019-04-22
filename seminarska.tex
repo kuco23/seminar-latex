@@ -1,7 +1,8 @@
-\documentclass[letterpaper, titlepage, fleqn]{article}
+\documentclass[ letterpaper, titlepage, fleqn]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[slovene]{babel}
+\usepackage[margin=60px]{geometry}
 \usepackage{amsmath}
 \usepackage{amssymb}
 
@@ -12,51 +13,94 @@
 \maketitle
 
 \begin{abstract}
-V tej nalogi bova s Tjašusom predstavila
-povezavo med Hermitovimi polinomi in normalno porazdellitvijo.
-Na koncu bova sprejela tudi kakšno vprašanje.
-Če bo najino ne poznanje odgovora na to vprašanje
-rezultiralo v nižjo oceno bova izvedela kje oseba, ki
-je to vprašanje zastavila živi.
+\begin{center}
+V tej nalogi bova predstavila povezavo med hermitovimi polinomi
+in standardno normalno porazdelitvijo.
+\end{center}
 \end{abstract}
 
 \section*{Naloga}
-Hermitovi polinomi $(h_n)_{n \in \mathbb{N}}$ dveh realniih spremenljivk
+Hermitovi polinomi $(h_n)_{n \in \mathbb{N}}$ dveh realnih spremenljivk
 so definirani preko relacije \\[10px]
-$e_n(x, t) := e^{ax -\frac{a^2t}{2}} = \sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(x, t), 
+$e_a(x, t) := e^{ax -\frac{a^2t}{2}} = \sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(x, t), 
 \quad {x, t} \subset \mathbb{R}, a \in \mathbb{C}$ \\[10px]
 Naj bosta $X \sim N(0, 1)$ in $Y \sim N(0, 1)$ neodvisni standardni normalni spremenljivki. \\[10px]
-(i) Izračunaj $E[e_a(X,1) e_b(X,1)] (\{a,b\} \in \mathbb{C} $ in izpelji izraz za $ E[h_n(X,1) h_m(X,1)] \text{ } (\{m,n\}\in ~ \mathbb{N} $).\\
+(i) Izračunaj $E[e_a(X,1) e_b(X,1)] (\{a,b\} \in \mathbb{C}) $ in izpelji izraz za $ E[h_n(X,1) h_m(X,1)] \text{ } (\{m,n\}\in ~ \mathbb{N} $).\\[10px]
+
+\noindent Pri prvem delu moramo izračunati $E\left(g\left(X\right)\right)$, kjer smo označili $g\left(x\right) = e_a\left(x, t\right) e_b\left(x, t\right)$ .
+Za izračun upoštevamo izrek o matematičnem upanju transformacije slučajne spremenljivke, ki je razviden v računu:
 
 {\setlength{\mathindent}{0cm}
-\begin{equation}
+\begin{equation*}
 \begin{aligned}
-E\left(g\left(X\right)\right) & = \int_{-\infty}^{\infty}g\left(x\right)f_X\left(x\right)dx = \\[8px]
+E\left(e_a\left(X, t\right)e_b\left(X, t\right)\right) &= E\left(g\left(X\right)\right) = \int_{-\infty}^{\infty}g\left(x\right)f_X\left(x\right)dx = \\[8px]
 &= \int_{-\infty}^{\infty} e^{-\frac{t}{2}(a^2 + b^2)} e^{x \left(a + b\right)} \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}} dx \\[8px]
 &= e^{-\frac{t}{2}\left(a^2 + b^2\right)} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2} + x \left(a + b\right)} dx \\[8px]
 & = e^{-\frac{t}{2} \left(a^2 + b^2\right)} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2} \left(x^2 - 2x \left(a + b\right)\right)} dx \\[8px]
 &= e^{-\frac{t}{2} \left(a^2 + b^2\right)} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2} \left(\left(x - \left(a + b\right)\right)^2 -\left (a + b\right)^2\right)} dx \\[8px]
 & = e^{-\frac{t}{2} \left(a^2 + b^2\right)} e^{\frac{1}{2} \left(a + b\right)^2} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2} \left(x - \left(a + b\right)\right)^2} dx \\[8px]
 & = e^{\frac{1}{2} \left(\left(a + b\right)^2 - t \left(a^2 + b^2\right)\right)} \int_{-\infty}^{\infty} f_Z(x) dx \quad (Z \sim N(a + b, 1)) \\[8px]
-& = e^{\frac{1}{2} \left(\left(a + b\right)^2 - t \left(a^2 + b^2\right)\right)}
+& = e^{\frac{1}{2} \left(\left(a + b\right)^2 - t \left(a^2 + b^2\right)\right)}. \\[8px]
 \end{aligned}
-\end{equation}
+\end{equation*}
 
-$$
-E(e_a(X, 1) e_b(X, 1)) = e^{ab} = \sum_{i=0}^{\infty} \frac{(ab)^i}{i!} \\[8px]
-E(e_a(X, 1) e_b(X, 1)) = E(\sum_{n=0}^{\infty} \sum_{m=0}^{\infty} \frac{a^n b^m}{n! m!} h_n(x, 1) h_m(x, 1) \\[8px]
-$$
-Vidimo, da enakost sledi tedaj, ko sta za $ \forall n \neq m : h_n(x, 1) h_m(x, 1) = 0 $ in za $ \forall n = m : h_n(x, 1) h_m(x, 1) = n! $ \\[10px]
-\[
-$$
-E(h_n(x, 1) h_m(x, 1)) = \int_{-\infty}^{\infty} h_n(x, 1) h_m(x, 1) f_X(x) dx  =
+\noindent Ko vstavimo $t=1$, dobimo naslednji zvezi:
+
+\begin{equation*}
+\begin{aligned}
+E\left(e_a\left(X, 1\right) e_b\left(X, 1\right)\right) &= e^{ab} = \sum_{i=0}^{\infty} \frac{(ab)^i}{i!}, \\[8px]
+E\left(e_a\left(X, 1\right) e_b\left(X, 1\right)\right) &= E\left(\sum_{n=0}^{\infty} \sum_{m=0}^{\infty} \frac{a^n b^m}{n! m!} h_n(x, 1) h_m(x, 1)\right)  =
+\sum_{n=0}^{\infty} \sum_{m=0}^{\infty} \frac{a^n b^m}{n! m!} E\left( h_n(x, 1) h_m(x, 1)\right).
+\\[8px]
+\end{aligned}
+\end{equation*}
+
+\noindent $
+\text{Vidimo, da enakost med vrstama velja, ko }
+E\left(h_n\left(X, 1\right) h_m\left(X, 1\right)\right)  =
 \left\{
 \begin{array}{lr}
- n! & \text{za } m = n \\
- 0 & \text{za } m \neq n 
- \end{array} 
- \right.
-$$
-\]
+n! & \text{za } m = n \\
+0 & \text{za } m \neq n 
+\end{array} 
+.\right.
+$
+
+\pagebreak
+
+
+\noindent (ii) Naj bo $a \in \mathbb{C}$ in $c \in \mathbb{R}$. Izrazi $E\left( e^{a\left(X+cY\right)}|X\right)$ z $e_a$, $X$ in $c$ ter $E\left(\left(X+cY\right)^{k}|X\right)$ za $k \in \mathbb{N}_0$ z $h_k$, $X$, in $c$.
+\\[10px]
+ 
+\noindent Najprej upoštevamo lastnosti pogojnega matematičnega upanja in uporabimo neodvisnost. Tako dobimo:
+\begin{equation*}
+\begin{aligned}
+E\left( e^{a\left(X+cY\right)}|X\right)=E\left( e^{aX}e^{acY}|X\right)=e^{aX}E\left(e^{acY}\right).
+\end{aligned}
+\end{equation*}
+Posebej izračunajmo $E\left(e^{acY}\right)$:
+\begin{equation*}
+\begin{aligned}
+E\left(e^{acY}\right)&=\int_{-\infty}^{\infty}e^{acy}\frac{1}{\sqrt{2\pi}} e^{-\frac{y^2}{2}} dy=\\[8px]
+&=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{\frac{-\left(y^2-2acy\right)}{2}}dy=\\[8px]
+&=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{\frac{-\left(\left(y-ac\right)^2-\left(ac\right)^2\right)}{2}}dy=\\[8px]
+&=e^\frac{(ac)^2}{2}.
+\end{aligned}
+\end{equation*}
+Torej dobimo:
+\begin{equation*}
+\begin{aligned}
+E\left( e^{a\left(X+cY\right)}|X\right)=e^{aX}e^\frac{\left(ac\right)^2}{2}=e^{aX+\frac{a^2c^2}{2}}=e_a\left(X,-c^2\right).
+\end{aligned}
+\end{equation*}
+Za izračun $E\left(\left(X+cY\right)^{k}|X\right)$ uporabimo prejšnji račun in razvijemo $e^{a\left(X+cY\right)}$ v Taylorjevo vrsto:
+\begin{equation*}
+\begin{aligned}
+E\left( e^{a\left(X+cY\right)}|X\right)=E\left(\sum_{n=0}^{\infty}\frac{a^n\left(X+cY\right)^n}{n!}|X\right)=\sum_{n=0}^{\infty}\frac{a^n}{n!}E((X+cY)^n|X). 
+\end{aligned}
+\end{equation*}
+Po definiciji hermitovih polinomov pa velja še $E\left( e^{a\left(X+cY\right)}|X\right)=
+\sum_{n=0}^{\infty} \frac{a^n}{n!} h_n\left(X, -c^2\right)$. \\
+Dobimo torej $E\left(\left(X+cY\right)^{n}|X\right)=h_n\left(X,-c^2\right)$.
 
 \end{document}
