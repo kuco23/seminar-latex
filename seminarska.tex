@@ -25,15 +25,14 @@ in standardno normalno porazdelitvijo.
 Hermitovi polinomi $(h_n)_{n \in \mathbb{N}}$ dveh realnih spremenljivk
 so definirani preko relacije \\[10px]
 $e_a(x, t) := e^{ax -\frac{a^2t}{2}} = \sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(x, t), 
-\quad {x, t} \subset \mathbb{R}, a \in \mathbb{C}$ \\[10px]
+\quad {x, t} \subset \mathbb{R}, a \in \mathbb{C}$.\\[10px]
 Naj bosta $X \sim N(0, 1)$ in $Y \sim N(0, 1)$ neodvisni standardni normalni spremenljivki.
 
 \begin{enumerate}[(i)]
 \item Izračunaj $ \mathbb{E}[e_a(X,1) e_b(X,1)] (\{a,b\} \in \mathbb{C})$ 
 in izpelji izraz za $\mathbb{E}[h_n(X,1) h_m(X,1)] \text{ } (\{m,n\}\in ~ \mathbb{N} $).
 
-Pri prvem delu moramo izračunati $\mathbb{E}\left(g\left(X\right)\right)$, kjer smo označili $g\left(x\right) = e_a\left(x, t\right) e_b\left(x, t\right)$ .
-Za izračun upoštevamo izrek o matematičnem upanju transformacije slučajne spremenljivke, ki je razviden v računu:
+Pri prvem delu moramo izračunati $\mathbb{E}\left(g\left(X\right)\right)$, kjer smo označili $g\left(x\right) = e_a\left(x, t\right) e_b\left(x, t\right)$ . Za izračun upoštevamo izrek o matematičnem upanju transformacije slučajne spremenljivke, ki je razviden v računu:
 
 {\setlength{\mathindent}{0cm}}
 \begin{equation*}
@@ -88,7 +87,7 @@ Poglejmo si razliko
 \sum_{n=0}^{M} \frac{a^n}{n!} \int_{-\infty}^{\infty} h_n(x, 1) f_X(x)dx| = \\
 &|\int_{-\infty}^{\infty} \left( \sum_{n=0}^{\infty} \frac{a^n}{n!} - \sum_{n=0}^{M} \frac{a^n}{n!} h_n(x, 1)\right) f_X(x) dx| \leq \\
 &\int_{-\infty}^{\infty} |\sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(x, 1) - \sum_{n=0}^{M} \frac{a^n}{n!} h_n(x, 1)| f_X(x) dx <  \\
-&\int_{-\infty}^{\infty} \epsilon f_X(x) dx = \epsilon
+&\int_{-\infty}^{\infty} \epsilon f_X(x) dx = \epsilon.
 \end{aligned}
 \end{equation*}
 
