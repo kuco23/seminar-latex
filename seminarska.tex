@@ -60,10 +60,6 @@ Ko vstavimo $t=1$, dobimo naslednji zvezi:
 \end{aligned}
 \end{equation*}
 
-Uporabili smo izrek o zamenjavi vrstnega reda pričakovane vrednosti in vrste slučajnih spremenljivk, za kar smo potrebovali pogoj 
-absolutne konvergence $\sum_{n=0}^{\infty} \sum_{m=0}^{\infty} \frac{a^n b^m}{n! m!}  h_n(|X|, 1) h_m(|X|, 1)$, 
-ki sledi iz enakosti tega in $e_a\left(|X|, 1\right) e_b\left(|X|, 1\right)$.
-
 $
 \text{Vidimo, da enakost med vrstama velja, ko }
 \mathbb{E}\left(h_n\left(X, 1\right) h_m\left(X, 1\right)\right)  =
@@ -74,6 +70,31 @@ n! & \text{za } m = n \\
 \end{array} 
 .\right.
 $
+
+Med računom smo uporabili izrek o zamenjavi vrstnega reda pričakovane vrednosti in vrste slučajnih spremenljivk, za kar smo potrebovali pogoj 
+absolutne konvergence $\sum_{n=0}^{\infty} \sum_{m=0}^{\infty} \frac{a^n b^m}{n! m!}  h_n(|X|, 1) h_m(|X|, 1)$, 
+ki sledi iz enakosti tega in svoje limite $e_a\left(|X|, 1\right) e_b\left(|X|, 1\right)$.
+
+Za naš primer lahko dokažemo, da velja
+$\mathbb{E}\left(\sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(X, 1)\right) = \sum_{n=0}^{\infty} \frac{a^n}{n!} \mathbb{E}(h_n(X, 1))$, 
+kar je ekvivalentno 
+$\int_{-\infty}^{\infty} \sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(x, 1) f_X(x) dx =
+\sum_{n=0}^{\infty} \frac{a^n}{n!}\int_{-\infty}^{\infty} h_n(x, 1) f_X(x) dx$.
+Poglejmo si razliko
+
+\begin{equation*}
+\begin{aligned}
+&|\int_{-\infty}^{\infty} \sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(x, 1) f_X(x) dx - 
+\sum_{n=0}^{M} \frac{a^n}{n!} \int_{-\infty}^{\infty} h_n(x, 1) f_X(x)dx| = \\
+&|\int_{-\infty}^{\infty} \left( \sum_{n=0}^{\infty} \frac{a^n}{n!} - \sum_{n=0}^{M} \frac{a^n}{n!} h_n(x, 1)\right) f_X(x) dx| \leq \\
+&\int_{-\infty}^{\infty} |\sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(x, 1) - \sum_{n=0}^{M} \frac{a^n}{n!} h_n(x, 1)| f_X(x) dx <  \\
+&\int_{-\infty}^{\infty} \epsilon f_X(x) dx = \epsilon
+\end{aligned}
+\end{equation*}
+
+Upoštevali smo, da $\sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(x, 1)$ konvergira enakomerno na zaprtih intervalih $[-A, A]$, 
+za poljuben $A > 0$, torej lahko njegovo in limitno razliko omejimo z $\epsilon$ na poljubno velikem intervalu,
+torej tudi v limiti, ki jo posplošeni integral zahteva.
 
 \pagebreak
 
