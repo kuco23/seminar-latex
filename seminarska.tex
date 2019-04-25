@@ -25,14 +25,15 @@ in standardno normalno porazdelitvijo.
 Hermitovi polinomi $(h_n)_{n \in \mathbb{N}}$ dveh realnih spremenljivk
 so definirani preko relacije \\[10px]
 $e_a(x, t) := e^{ax -\frac{a^2t}{2}} = \sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(x, t), 
-\quad {x, t} \subset \mathbb{R}, a \in \mathbb{C}$.\\[10px]
+\quad x, t \in \mathbb{R}, a \in \mathbb{C}$.\\[10px]
 Naj bosta $X \sim N(0, 1)$ in $Y \sim N(0, 1)$ neodvisni standardni normalni spremenljivki.
 
 \begin{enumerate}[(i)]
-\item Izračunaj $ \mathbb{E}[e_a(X,1) e_b(X,1)] (\{a,b\} \in \mathbb{C})$ 
-in izpelji izraz za $\mathbb{E}[h_n(X,1) h_m(X,1)] \text{ } (\{m,n\}\in ~ \mathbb{N} $).
+\item Izračunaj $ \mathbb{E}[e_a(X,1) e_b(X,1)]$ $(a,b \in \mathbb{C})$
+in izpelji izraz za $\mathbb{E}[h_n(X,1) h_m(X,1)]$ $(m,n \in ~ \mathbb{N})$.
 
-Pri prvem delu moramo izračunati $\mathbb{E}\left(g\left(X\right)\right)$, kjer smo označili $g\left(x\right) = e_a\left(x, t\right) e_b\left(x, t\right)$ .
+Pri prvem delu moramo izračunati $\mathbb{E}\left(g\left(X\right)\right)$, 
+kjer smo označili $g\left(x\right) = e_a\left(x, 1\right) e_b\left(x, 1\right)$. \\
 Poenostavimo najprej $g(x)$, torej
 $$
 g(x) = e_a(x, 1) e_b(x, 1) = e^{ax - \frac{a^2}{2}}  e^{bx - \frac{b^2}{2}} = e^{-\frac{a^2 + b^2}{2}} e^{x(a + b)}.
@@ -77,10 +78,7 @@ n! & \text{za } m = n \\
 .\right.
 $
 
-Med računom smo uporabili izrek o zamenjavi vrstnega reda pričakovane vrednosti in vrste slučajnih spremenljivk, za kar smo potrebovali pogoj 
-absolutne konvergence $\sum_{n=0}^{\infty} \sum_{m=0}^{\infty} \frac{a^n b^m}{n! m!}  h_n(|X|, 1) h_m(|X|, 1)$, 
-ki sledi iz enakosti tega in svoje limite $e_a\left(|X|, 1\right) e_b\left(|X|, 1\right)$.
-
+Med računom smo uporabili izrek o zamenjavi vrstnega reda pričakovane vrednosti in vrste slučajnih spremenljivk.
 Za naš primer lahko dokažemo, da velja
 $$
 \mathbb{E}\left(\sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(X, 1)\right) = \sum_{n=0}^{\infty} \frac{a^n}{n!} \mathbb{E}(h_n(X, 1)),
