@@ -32,7 +32,6 @@ Naj bosta $X \sim N(0, 1)$ in $Y \sim N(0, 1)$ neodvisni standardni normalni spr
 \item Izračunaj $ \mathbb{E}[e_a(X,1) e_b(X,1)] (\{a,b\} \in \mathbb{C})$ 
 in izpelji izraz za $\mathbb{E}[h_n(X,1) h_m(X,1)] \text{ } (\{m,n\}\in ~ \mathbb{N} $).
 
-<<<<<<< HEAD
 Pri prvem delu moramo izračunati $\mathbb{E}\left(g\left(X\right)\right)$, kjer smo označili $g\left(x\right) = e_a\left(x, t\right) e_b\left(x, t\right)$ .
 Poenostavimo najprej $g(x)$, torej
 $$
@@ -46,11 +45,7 @@ e^{-\frac{a^2 + b^2}{2}} \int_{-\infty}^{\infty}  e^{x(a + b)} \frac{1}{\sqrt{2\
 $$
 Sedaj del integranda v eksponentu $e$ lahko dopolnimo do popolnega kvadrata,z namenom preoblikovanja integranda v obliko,
 ki bo skladna z gostoto premaknjene normalne porazdelitvije.
-=======
-Pri prvem delu moramo izračunati $\mathbb{E}\left(g\left(X\right)\right)$, kjer smo označili $g\left(x\right) = e_a\left(x, t\right) e_b\left(x, t\right)$ . Za izračun upoštevamo izrek o matematičnem upanju transformacije slučajne spremenljivke, ki je razviden v računu:
 
-{\setlength{\mathindent}{0cm}}
->>>>>>> cd1e0e255fd81aebb9fa6d1b280af3c4f4acd0d2
 \begin{equation*}
 \begin{aligned}
 &= e^{-\frac{1}{2} (a^2 + b^2)} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2} (x^2 - 2x (a + b))} dx \\
@@ -93,25 +88,17 @@ $$
 kar je ekvivalentno 
 $$
 \int_{-\infty}^{\infty} \sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(x, 1) f_X(x) dx =
-\sum_{n=0}^{\infty} \frac{a^n}{n!}\int_{-\infty}^{\infty} h_n(x, 1) f_X(x) dx
-$$.
-Poglejmo si razliko
+\sum_{n=0}^{\infty} \frac{a^n}{n!}\int_{-\infty}^{\infty} h_n(x, 1) f_X(x) dx.
+$$
 
+Poglejmo si razliko
 \begin{equation*}
 \begin{aligned}
-<<<<<<< HEAD
-&\left|\int_{-\infty}^{\infty} \sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(x, 1) f_X(x) dx - 
+&\left|\int_{-\infty}^{\infty} \sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(x, 1) f_X(x) dx -  
 \sum_{n=0}^{M} \frac{a^n}{n!} \int_{-\infty}^{\infty} h_n(x, 1) f_X(x)dx\right| = \\
-&\left|\int_{-\infty}^{\infty} \left( \sum_{n=0}^{\infty} \frac{a^n}{n!} - \sum_{n=0}^{M} \frac{a^n}{n!} h_n(x, 1)\right) f_X(x) dx\right| \leq \\
-&\int_{-\infty}^{\infty} \left|\sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(x, 1) - \sum_{n=0}^{M} \frac{a^n}{n!} h_n(x, 1)\right| f_X(x) dx <  \\
-&\int_{-\infty}^{\infty} \epsilon f_X(x) dx = \epsilon
-=======
-&|\int_{-\infty}^{\infty} \sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(x, 1) f_X(x) dx - 
-\sum_{n=0}^{M} \frac{a^n}{n!} \int_{-\infty}^{\infty} h_n(x, 1) f_X(x)dx| = \\
-&|\int_{-\infty}^{\infty} \left( \sum_{n=0}^{\infty} \frac{a^n}{n!} - \sum_{n=0}^{M} \frac{a^n}{n!} h_n(x, 1)\right) f_X(x) dx| \leq \\
-&\int_{-\infty}^{\infty} |\sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(x, 1) - \sum_{n=0}^{M} \frac{a^n}{n!} h_n(x, 1)| f_X(x) dx <  \\
-&\int_{-\infty}^{\infty} \epsilon f_X(x) dx = \epsilon.
->>>>>>> cd1e0e255fd81aebb9fa6d1b280af3c4f4acd0d2
+&=\left|\int_{-\infty}^{\infty} \left( \sum_{n=0}^{\infty} \frac{a^n}{n!} - \sum_{n=0}^{M} \frac{a^n}{n!} h_n(x, 1)\right) f_X(x) dx\right| \leq \\
+&\leq\int_{-\infty}^{\infty} \left|\sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(x, 1) - \sum_{n=0}^{M} \frac{a^n}{n!} h_n(x, 1)\right| f_X(x) dx <  \\
+&<\int_{-\infty}^{\infty} \epsilon f_X(x) dx = \epsilon
 \end{aligned}
 \end{equation*}
 
