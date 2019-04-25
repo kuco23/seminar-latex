@@ -35,20 +35,20 @@ in izpelji izraz za $\mathbb{E}[h_n(X,1) h_m(X,1)] \text{ } (\{m,n\}\in ~ \mathb
 Pri prvem delu moramo izračunati $\mathbb{E}\left(g\left(X\right)\right)$, kjer smo označili $g\left(x\right) = e_a\left(x, t\right) e_b\left(x, t\right)$ .
 Poenostavimo najprej $g(x)$, torej
 $$
-g(x) = e_a(x, 1) e_b(x, 1) = e^{ax - \frac{a^2}{2}}  e^{bx - \frac{b^2}{2}} = e^{-\frac{a^2 + b^2}{2}} e^{x(a + b)}
+g(x) = e_a(x, 1) e_b(x, 1) = e^{ax - \frac{a^2}{2}}  e^{bx - \frac{b^2}{2}} = e^{-\frac{a^2 + b^2}{2}} e^{x(a + b)}.
 $$
-Vstavimo rezultat v začetni problem in upoštevamo izrek o matematičnem upanju transformacije slučajne sremenljivke
+Vstavimo rezultat v začetni problem in upoštevamo izrek o matematičnem upanju transformacije slučajne spremenljivke
 $$
 \mathbb{E}\left(e_a\left(X, t\right)e_b\left(X, t\right)\right) =
 \mathbb{E}\left(g\left(X\right)\right) = \int_{-\infty}^{\infty}g\left(x\right)f_X\left(x\right)dx =
-e^{-\frac{a^2 + b^2}{2}} \int_{-\infty}^{\infty}  e^{x(a + b)} \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}} dx
+e^{-\frac{a^2 + b^2}{2}} \int_{-\infty}^{\infty}  e^{x(a + b)} \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}} dx.
 $$
-Sedaj del integranda v eksponentu $e$ lahko dopolnimo do popolnega kvadrata,z namenom preoblikovanja integranda v obliko,
-ki bo skladna z gostoto premaknjene normalne porazdelitvije.
+Sedaj del integranda v eksponentu $e$ lahko dopolnimo do popolnega kvadrata z namenom preoblikovanja integranda v obliko,
+ki bo skladna z gostoto premaknjene normalne porazdelitve. Nadaljujemo račun:
 
 \begin{equation*}
 \begin{aligned}
-&= e^{-\frac{1}{2} (a^2 + b^2)} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2} (x^2 - 2x (a + b))} dx \\
+&e^{-\frac{1}{2} (a^2 + b^2)} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2} (x^2 - 2x (a + b))} dx \\
 &= e^{-\frac{1}{2} (a^2 + b^2)} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2} ((x - (a + b))^2 - (a + b)^2)} dx  \\
 &= e^{\frac{1}{2}((a + b)^2 - (a^2 + b^2))} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2} (x - (a + b))^2} dx  \\
 & = e^{ab} \int_{-\infty}^{\infty} f_Z(x) dx \qquad (Z \sim N(a + b, 1)) \\
@@ -98,13 +98,13 @@ Poglejmo si razliko
 \sum_{n=0}^{M} \frac{a^n}{n!} \int_{-\infty}^{\infty} h_n(x, 1) f_X(x)dx\right| = \\
 &=\left|\int_{-\infty}^{\infty} \left( \sum_{n=0}^{\infty} \frac{a^n}{n!} - \sum_{n=0}^{M} \frac{a^n}{n!} h_n(x, 1)\right) f_X(x) dx\right| \leq \\
 &\leq\int_{-\infty}^{\infty} \left|\sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(x, 1) - \sum_{n=0}^{M} \frac{a^n}{n!} h_n(x, 1)\right| f_X(x) dx <  \\
-&<\int_{-\infty}^{\infty} \epsilon f_X(x) dx = \epsilon
+&<\int_{-\infty}^{\infty} \epsilon f_X(x) dx = \epsilon.
 \end{aligned}
 \end{equation*}
 
 Upoštevali smo, da $\sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(x, 1)$ konvergira enakomerno na zaprtih intervalih $[-A, A]$, 
 za poljuben $A > 0$, torej lahko njegovo in limitno razliko omejimo z $\epsilon$ na poljubno velikem intervalu,
-torej tudi v limiti, ki jo posplošeni integral zahteva.
+posledično pa tudi v limiti, ki jo posplošeni integral zahteva.
 Iz tega sledi, da sta razliki za dovolj velik $M \in \mathbb{N}$ poljubno blizu.\bigskip
 
 
