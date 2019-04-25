@@ -33,24 +33,29 @@ Naj bosta $X \sim N(0, 1)$ in $Y \sim N(0, 1)$ neodvisni standardni normalni spr
 in izpelji izraz za $\mathbb{E}[h_n(X,1) h_m(X,1)] \text{ } (\{m,n\}\in ~ \mathbb{N} $).
 
 Pri prvem delu moramo izračunati $\mathbb{E}\left(g\left(X\right)\right)$, kjer smo označili $g\left(x\right) = e_a\left(x, t\right) e_b\left(x, t\right)$ .
-Za izračun upoštevamo izrek o matematičnem upanju transformacije slučajne spremenljivke, ki je razviden v računu:
-
-{\setlength{\mathindent}{0cm}}
+Poenostavimo najprej $g(x)$, torej
+$$
+g(x) = e_a(x, 1) e_b(x, 1) = e^{ax - \frac{a^2}{2}}  e^{bx - \frac{b^2}{2}} = e^{-\frac{a^2 + b^2}{2}} e^{x(a + b)}
+$$
+Vstavimo rezultat v začetni problem in upoštevamo izrek o matematičnem upanju transformacije slučajne sremenljivke
+$$
+\mathbb{E}\left(e_a\left(X, t\right)e_b\left(X, t\right)\right) =
+\mathbb{E}\left(g\left(X\right)\right) = \int_{-\infty}^{\infty}g\left(x\right)f_X\left(x\right)dx =
+e^{-\frac{a^2 + b^2}{2}} \int_{-\infty}^{\infty}  e^{x(a + b)} \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}} dx
+$$
+Sedaj del integranda v eksponentu $e$ lahko dopolnimo do popolnega kvadrata,z namenom preoblikovanja integranda v obliko,
+ki bo skladna z gostoto premaknjene normalne porazdelitvije.
 \begin{equation*}
 \begin{aligned}
-\mathbb{E}\left(e_a\left(X, t\right)e_b\left(X, t\right)\right) &= \mathbb{E}\left(g\left(X\right)\right) = \int_{-\infty}^{\infty}g\left(x\right)f_X\left(x\right)dx = \\[8px]
-&= \int_{-\infty}^{\infty} e^{-\frac{t}{2}(a^2 + b^2)} e^{x \left(a + b\right)} \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2}} dx \\[8px]
-&= e^{-\frac{t}{2}\left(a^2 + b^2\right)} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{x^2}{2} + x \left(a + b\right)} dx \\[8px]
-& = e^{-\frac{t}{2} \left(a^2 + b^2\right)} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2} \left(x^2 - 2x \left(a + b\right)\right)} dx \\[8px]
-&= e^{-\frac{t}{2} \left(a^2 + b^2\right)} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2} \left(\left(x - \left(a + b\right)\right)^2 -\left (a + b\right)^2\right)} dx \\[8px]
-& = e^{-\frac{t}{2} \left(a^2 + b^2\right)} e^{\frac{1}{2} \left(a + b\right)^2} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2} \left(x - \left(a + b\right)\right)^2} dx \\[8px]
-& = e^{\frac{1}{2} \left(\left(a + b\right)^2 - t \left(a^2 + b^2\right)\right)} \int_{-\infty}^{\infty} f_Z(x) dx \qquad (Z \sim N(a + b, 1)) \\[8px]
-& = e^{\frac{1}{2} \left(\left(a + b\right)^2 - t \left(a^2 + b^2\right)\right)}. \\[8px]
+&= e^{-\frac{1}{2} (a^2 + b^2)} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2} (x^2 - 2x (a + b))} dx \\
+&= e^{-\frac{1}{2} (a^2 + b^2)} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2} ((x - (a + b))^2 - (a + b)^2)} dx  \\
+&= e^{\frac{1}{2}((a + b)^2 - (a^2 + b^2))} \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2} (x - (a + b))^2} dx  \\
+& = e^{ab} \int_{-\infty}^{\infty} f_Z(x) dx \qquad (Z \sim N(a + b, 1)) \\
+& = e^{ab}.
 \end{aligned}
 \end{equation*}
 
-Ko vstavimo $t=1$, dobimo naslednji zvezi:
-
+Dobimo torej naslednji zvezi:
 \begin{equation*}
 \begin{aligned}
 \mathbb{E}\left(e_a\left(X, 1\right) e_b\left(X, 1\right)\right) &= e^{ab} = \sum_{i=0}^{\infty} \frac{(ab)^i}{i!}, \\[8px]
@@ -76,18 +81,22 @@ absolutne konvergence $\sum_{n=0}^{\infty} \sum_{m=0}^{\infty} \frac{a^n b^m}{n!
 ki sledi iz enakosti tega in svoje limite $e_a\left(|X|, 1\right) e_b\left(|X|, 1\right)$.
 
 Za naš primer lahko dokažemo, da velja
-$\mathbb{E}\left(\sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(X, 1)\right) = \sum_{n=0}^{\infty} \frac{a^n}{n!} \mathbb{E}(h_n(X, 1))$, 
+$$
+\mathbb{E}\left(\sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(X, 1)\right) = \sum_{n=0}^{\infty} \frac{a^n}{n!} \mathbb{E}(h_n(X, 1)),
+$$
 kar je ekvivalentno 
-$\int_{-\infty}^{\infty} \sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(x, 1) f_X(x) dx =
-\sum_{n=0}^{\infty} \frac{a^n}{n!}\int_{-\infty}^{\infty} h_n(x, 1) f_X(x) dx$.
+$$
+\int_{-\infty}^{\infty} \sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(x, 1) f_X(x) dx =
+\sum_{n=0}^{\infty} \frac{a^n}{n!}\int_{-\infty}^{\infty} h_n(x, 1) f_X(x) dx
+$$.
 Poglejmo si razliko
 
 \begin{equation*}
 \begin{aligned}
-&|\int_{-\infty}^{\infty} \sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(x, 1) f_X(x) dx - 
-\sum_{n=0}^{M} \frac{a^n}{n!} \int_{-\infty}^{\infty} h_n(x, 1) f_X(x)dx| = \\
-&|\int_{-\infty}^{\infty} \left( \sum_{n=0}^{\infty} \frac{a^n}{n!} - \sum_{n=0}^{M} \frac{a^n}{n!} h_n(x, 1)\right) f_X(x) dx| \leq \\
-&\int_{-\infty}^{\infty} |\sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(x, 1) - \sum_{n=0}^{M} \frac{a^n}{n!} h_n(x, 1)| f_X(x) dx <  \\
+&\left|\int_{-\infty}^{\infty} \sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(x, 1) f_X(x) dx - 
+\sum_{n=0}^{M} \frac{a^n}{n!} \int_{-\infty}^{\infty} h_n(x, 1) f_X(x)dx\right| = \\
+&\left|\int_{-\infty}^{\infty} \left( \sum_{n=0}^{\infty} \frac{a^n}{n!} - \sum_{n=0}^{M} \frac{a^n}{n!} h_n(x, 1)\right) f_X(x) dx\right| \leq \\
+&\int_{-\infty}^{\infty} \left|\sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(x, 1) - \sum_{n=0}^{M} \frac{a^n}{n!} h_n(x, 1)\right| f_X(x) dx <  \\
 &\int_{-\infty}^{\infty} \epsilon f_X(x) dx = \epsilon
 \end{aligned}
 \end{equation*}
@@ -95,8 +104,7 @@ Poglejmo si razliko
 Upoštevali smo, da $\sum_{n=0}^{\infty} \frac{a^n}{n!} h_n(x, 1)$ konvergira enakomerno na zaprtih intervalih $[-A, A]$, 
 za poljuben $A > 0$, torej lahko njegovo in limitno razliko omejimo z $\epsilon$ na poljubno velikem intervalu,
 torej tudi v limiti, ki jo posplošeni integral zahteva.
-
-\pagebreak
+Iz tega sledi, da sta razliki za dovolj velik $M \in \mathbb{N}$ poljubno blizu.\bigskip
 
 
 \item Naj bo $a \in \mathbb{C}$ in $c \in \mathbb{R}$. Izrazi $\mathbb{E}\left( e^{a\left(X+cY\right)}|X\right)$ z $e_a$, $X$ in $c$ ter $\mathbb{E}\left(\left(X+cY\right)^{k}|X\right)$ za $k \in \mathbb{N}_0$ z $h_k$, $X$, in $c$.
